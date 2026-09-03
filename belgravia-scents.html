@@ -1,0 +1,331 @@
+<title>Belgravia Scents — Amna Chinoy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper:#FAF9F5; --ink:#1B1815; --ink-soft:#4C453D; --muted:#8C8172;
+    --accent:#7A2E3B; --warm:#B99A7F; --line:#E4DFD3;
+    --font-display:'Fraunces',ui-serif,Georgia,serif;
+    --font-body:'Public Sans',-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#16130F; --ink:#F1ECE3; --ink-soft:#C6BDAE; --muted:#8D8272;
+      --accent:#E5AAB4; --warm:#9C8267; --line:#332C22;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#16130F; --ink:#F1ECE3; --ink-soft:#C6BDAE; --muted:#8D8272;
+    --accent:#E5AAB4; --warm:#9C8267; --line:#332C22;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;}}
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+
+  .rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  header.site{display:flex;align-items:center;justify-content:space-between;padding:26px clamp(20px,5vw,64px);border-bottom:1px solid var(--line);}
+  .wordmark{font-family:var(--font-mono);font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .wordmark-block{display:flex;flex-direction:column;gap:3px;}
+  .wordmark-sub{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  nav.primary{display:flex;gap:28px;align-items:center;}
+  nav.primary a{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s, border-color .15s;}
+  nav.primary a:hover{color:var(--accent);border-color:var(--accent);}
+
+  .crumb{padding:9px clamp(20px,5vw,64px);border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:11.5px;letter-spacing:.03em;color:var(--muted);}
+  .crumb a{text-decoration:none;color:var(--muted);}
+  .crumb a:hover{color:var(--accent);}
+
+  main{max-width:1040px;margin:0 auto;padding:0 clamp(20px,5vw,64px);}
+
+  .hero{padding:clamp(48px,8vw,84px) 0 clamp(32px,5vw,48px);}
+  .eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 22px;display:block;}
+  h1.thesis{font-family:var(--font-display);font-weight:500;font-size:clamp(30px,5vw,48px);line-height:1.14;letter-spacing:-.01em;margin:0 0 26px;max-width:22ch;text-wrap:balance;}
+  .hero-body{font-size:clamp(16px,1.7vw,18.5px);line-height:1.7;color:var(--ink-soft);max-width:68ch;margin:0;}
+
+  .case-meta{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:0;margin:clamp(36px,5vw,52px) 0;}
+  .cm{padding:18px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:baseline;}
+  .cm:last-child{border-bottom:none;}
+  .cm-label{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
+  .cm-value{font-size:15.5px;color:var(--ink);}
+  @media (min-width:700px){
+    .case-meta{grid-template-columns:1fr 1fr 1fr;border-bottom:none;}
+    .cm{border-bottom:none;border-right:1px solid var(--line);padding:0 22px;grid-template-columns:1fr;gap:8px;}
+    .cm:first-child{padding-left:0;}
+    .cm:last-child{border-right:none;padding-right:0;}
+  }
+
+  figure.hero-shot{margin:0 0 clamp(40px,6vw,60px);}
+  figure.hero-shot img{width:100%;border-radius:2px;}
+  figure.hero-shot figcaption{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);margin-top:10px;letter-spacing:.02em;}
+
+  section.stage{border-top:1px solid var(--line);padding:clamp(44px,7vw,68px) 0;}
+  .stage-head{display:grid;grid-template-columns:44px 1fr;gap:20px;margin-bottom:22px;}
+  .stage-index{font-family:var(--font-mono);font-size:12px;color:var(--accent);padding-top:6px;}
+  .stage-title{font-family:var(--font-display);font-size:clamp(22px,3vw,30px);font-weight:500;margin:0;}
+  .stage-body{margin:0 0 0 64px;max-width:66ch;}
+  .stage-body p{font-size:15.5px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .stage-body p:last-child{margin-bottom:0;}
+  .stage-body p.lede{font-size:16.5px;color:var(--ink);}
+  @media (max-width:560px){.stage-body{margin-left:0;}}
+
+  .figure-row{margin:28px 0 0 64px;display:grid;grid-template-columns:1fr;gap:20px;}
+  @media (min-width:760px){.figure-row.two{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.figure-row{margin-left:0;}}
+  .figure-row figure{margin:0;}
+  .figure-row img{width:100%;border-radius:2px;border:1px solid var(--line);}
+  .figure-row figcaption{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;}
+
+  .decision-list{list-style:none;margin:30px 0 0 64px;padding:0;max-width:68ch;}
+  @media (max-width:560px){.decision-list{margin-left:0;}}
+  .decision-item{display:grid;grid-template-columns:34px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line);}
+  .decision-item:last-child{padding-bottom:0;}
+  .decision-n{font-family:var(--font-mono);font-size:12px;color:var(--accent);border:1px solid var(--accent);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .decision-body b{display:block;font-family:var(--font-display);font-weight:500;font-size:17px;color:var(--ink);margin-bottom:6px;}
+  .decision-body p{margin:0 0 14px;font-size:15px;line-height:1.7;color:var(--ink-soft);}
+  .decision-body .figure-row{margin-left:0;margin-top:14px;}
+
+  .note{margin:30px 0 0 64px;padding:16px 18px;border:1px dashed var(--line);font-size:13.5px;line-height:1.6;color:var(--ink-soft);max-width:64ch;}
+  .note a{color:var(--accent);}
+  @media (max-width:560px){.note{margin-left:0;}}
+
+  .gallery{list-style:none;margin:30px 0 0 64px;padding:0;max-width:66ch;display:grid;grid-template-columns:1fr;gap:26px;}
+  @media (min-width:760px){.gallery{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.gallery{margin-left:0;}}
+  .gallery li{margin:0;}
+  .gallery img{width:100%;border-radius:2px;border:1px solid var(--line);}
+  .gallery figcaption{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;}
+
+  footer.site{border-top:1px solid var(--line);padding:clamp(36px,6vw,52px) 0 60px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;}
+  .foot-block .foot-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;}
+  .foot-block p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+  .copyright{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+</style>
+
+<header class="site">
+  <div class="wordmark-block">
+    <a class="wordmark" href="index.html">Amna Chinoy</a>
+    <span class="wordmark-sub">Marvi Uzair</span>
+  </div>
+  <nav class="primary">
+    <a href="index.html#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+<div class="crumb"><a href="index.html#work">Work</a> / <a href="proplex.html">Proplex</a> / Belgravia Scents</div>
+
+<main>
+
+  <section class="hero" id="top">
+    <span class="eyebrow rise" style="animation-delay:.02s">Selected project — via Proplex</span>
+    <h1 class="thesis rise" style="animation-delay:.1s">Belgravia had earned the trust. The site hadn't caught up.</h1>
+    <p class="hero-body rise" style="animation-delay:.18s">Belgravia Scents is a UAE-headquartered fragrance house selling oud and amber-forward eau de parfum to US customers, with a real trust base — 6,800+ reviews — built before I ever saw a brief. Working as Creative Strategist at Proplex, I ran a project-based rebrand: a competitive and positioning audit, a three-phase creative roadmap, a rebuilt photography system, and a US creator strategy — closing the gap between what the brand had earned and what its site and content were actually saying.</p>
+
+    <div class="case-meta rise" style="animation-delay:.26s">
+      <div class="cm"><span class="cm-label">Role</span><span class="cm-value">Creative Strategist, via Proplex</span></div>
+      <div class="cm"><span class="cm-label">Duration</span><span class="cm-value">Project-based, ongoing work</span></div>
+      <div class="cm"><span class="cm-label">Scope</span><span class="cm-value">Positioning &amp; competitive research · Creative direction · Photography system · US creator strategy</span></div>
+    </div>
+
+    <figure class="hero-shot rise" style="animation-delay:.32s">
+      <img src="assets/belgravia-scents/img1.jpg" alt="Belgravia Scents — Arabian Rose parfum, product photography">
+      <figcaption>Arabian Rose — from the rebuilt product photography system.</figcaption>
+    </figure>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">01</span>
+      <h2 class="stage-title">Context</h2>
+    </div>
+    <div class="stage-body">
+      <p>Belgravia Scents sells concentrated oud, amber and woody eau de parfum to a US audience, priced from $40 to $96 at the time of the audit (the range now runs to a $99 signature collection alongside a $49.99 discovery set). It's UAE-manufactured, direct-to-consumer, and already carrying more than 6,800 customer reviews — a trust base most challenger fragrance brands don't have yet. What it didn't have was a visual or verbal identity built to match that trust: the brand's pricing and experience sat at the accessible end of the market while its messaging reached for true luxury, sending two different signals to the same customer at once.</p>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">02</span>
+      <h2 class="stage-title">The problem</h2>
+    </div>
+    <div class="stage-body">
+      <p class="lede">A beautiful brand, an overloaded homepage.</p>
+      <p>The site's own hero banner told the story before any customer research did: a Summer Sale takeover, four stacked promotions, and the brand's own product photography competing with "up to 20% off" for the same few seconds of attention. The wider homepage read as a catalog rather than a destination — collections stacked back-to-back, a long promotion-heavy scroll, and, per the audit, no clear focal point or guided journey. The opportunity wasn't more content. It was less of it, in a different order.</p>
+    </div>
+    <div class="figure-row two">
+      <figure>
+        <img src="assets/belgravia-scents/img2.jpg" alt="Website audit slide: Understanding the Current Experience — a beautiful brand, an overloaded homepage">
+        <figcaption>The homepage as it stood — too much, too soon, with no clear focal point.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/belgravia-scents/img3.jpg" alt="Website audit slide: current hero banner critique, what works and opportunities">
+        <figcaption>What the current hero banner was actually saying, versus what it could.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">03</span>
+      <h2 class="stage-title">What I did, in order</h2>
+    </div>
+    <div class="stage-body">
+      <p>Six decisions, each building on the last — not one creative reveal.</p>
+    </div>
+
+    <ol class="decision-list">
+      <li class="decision-item">
+        <span class="decision-n">1</span>
+        <div class="decision-body">
+          <b>Diagnose before designing</b>
+          <p>Before any creative direction, I ran a competitive and positioning audit — pricing, review counts and messaging against direct competitors (Lattafa, Armaf, Ajmal, Rasasi, Swiss Arabian — Belgravia's closest "voice-twin" — and Al Haramain) and indirect ones (Phlur, Skylar, Dossier, Jo Malone, Maison Margiela Replica). The finding that shaped everything after it: luxury brands earn trust through proof — named perfumers, documented heritage, real retail placement — not through adjectives, and Belgravia's own positioning was still leaning on adjectives.</p>
+          <div class="figure-row">
+            <figure>
+              <img src="assets/belgravia-scents/img4.jpg" alt="Competitive landscape slide: Luxury Brands Earn Trust Through Proof, Not Promises">
+              <figcaption>The competitive read that set the direction for everything after it.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </li>
+      <li class="decision-item">
+        <span class="decision-n">2</span>
+        <div class="decision-body">
+          <b>Name the gap in writing, not just in a deck</b>
+          <p>The brand-understanding work made the gap explicit: pricing and experience sat near "accessible," messaging reached for "true luxury" — and named what the brand already had to close it with instead of borrowed heritage language: the review base, occasion-led collections (Date Night, Vacation Energy) that were under-realized visually, and a clear oud-rooted identity rather than an unfocused range.</p>
+          <div class="figure-row">
+            <figure>
+              <img src="assets/belgravia-scents/img5.jpg" alt="Brand understanding slide: who Belgravia Scents is, current positioning, core brand values">
+              <figcaption>Naming the gap between where pricing sat and where messaging reached.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </li>
+      <li class="decision-item">
+        <span class="decision-n">3</span>
+        <div class="decision-body">
+          <b>Sequence the rebuild instead of redesigning everything at once</b>
+          <p>I structured the work as three phases rather than one relaunch: Foundation (website and brand audit, identity, brand proof), Elevate (photography, packaging, videography, UGC and influencers), and Engage (content strategy, social, email/CRM, customer experience) — each phase building proof for the next, rather than shipping a new look with nothing behind it.</p>
+          <div class="figure-row">
+            <figure>
+              <img src="assets/belgravia-scents/img6.jpg" alt="The Creative Roadmap slide: Build the Foundation, Elevate the Brand Experience, Engage and Connect">
+              <figcaption>The three-phase roadmap: foundation, then experience, then engagement.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </li>
+      <li class="decision-item">
+        <span class="decision-n">4</span>
+        <div class="decision-body">
+          <b>Replace promotion-first with emotion-first</b>
+          <p>I recommended leading the homepage with an editorial campaign rather than the sale banner, and pushing promotions further down the page — the same move Maison Francis Kurkdjian, Byredo, Amouage and Aesop all make on their own hero banners, and the one Belgravia's audit showed it wasn't making yet.</p>
+        </div>
+      </li>
+      <li class="decision-item">
+        <span class="decision-n">5</span>
+        <div class="decision-body">
+          <b>Build a repeatable photography system, not one-off shots</b>
+          <p>Rather than brief a single hero shot, I set a six-part system — hero product, detail, craftsmanship, lifestyle, texture and material, mood and ambience — tied to the fragrances' own ingredient story (pineapple, smoky woods, amber, black pepper, vanilla, musk), so future content stays consistent without a new brief every time.</p>
+          <div class="figure-row">
+            <figure>
+              <img src="assets/belgravia-scents/img7.jpg" alt="Visual storytelling slide: six-part photography system tied to fragrance ingredient story">
+              <figcaption>The six-part photography system, tied to each fragrance's ingredient story.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </li>
+      <li class="decision-item">
+        <span class="decision-n">6</span>
+        <div class="decision-body">
+          <b>Model the creator strategy on economics, not on one big name</b>
+          <p>For the engage phase, I built a separate US creator and UGC strategy rather than recommend a single macro-influencer campaign: heavy gifting to nano and micro fragrance creators, a small number of paid placements, and one or two macro names reserved for credibility rather than reach — modeled on how Kayali actually grew, through prolific mid- and lower-follower "fragrance fanatics" each generating six-figure earned media value, not one campaign.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">04</span>
+      <h2 class="stage-title">What was mine</h2>
+    </div>
+    <div class="stage-body">
+      <p>This is one project inside an ongoing seat — I work at Proplex as Creative Strategist across whichever client brief the agency is running, and Belgravia Scents is the one project from that seat client confidentiality allows me to show in this much detail. My scope here was strategy and direction: the competitive and positioning research, the three-phase roadmap, the structure of the photography system, and the US creator/UGC economics strategy. The website build, individual shoot production and day-to-day execution of the roadmap sat with Proplex's wider production team, not with me alone.</p>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">05</span>
+      <h2 class="stage-title">What's live</h2>
+    </div>
+    <div class="stage-body">
+      <p>The engagement is project-based and ongoing — so what follows is what shipped, not a finished performance read.</p>
+    </div>
+    <ul class="gallery">
+      <li>
+        <figure>
+          <img src="assets/belgravia-scents/img8.jpg" alt="Belgravia Scents live homepage: editorial campaign photography leading, Labor Day promotion pushed below">
+          <figcaption>The rebuilt homepage — campaign photography first, the promotion pushed down the page.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="assets/belgravia-scents/img9.jpg" alt="Belgravia Scents collections: Discovery Sets, For Him, For Her, Unisex">
+          <figcaption>Collections reorganized around how customers actually shop.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="assets/belgravia-scents/img10.jpg" alt="Belgravia Scents Midnight parfum product photography with review count">
+          <figcaption>Product photography from the new system, in production use.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="assets/belgravia-scents/img11.jpg" alt="Belgravia Scents Shop by Scent Profile: Woody and Smoky, Warm and Spicy">
+          <figcaption>The ingredient-story system, applied to navigation.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="assets/belgravia-scents/img12.jpg" alt="Belgravia Scents Instagram profile: 504 posts, 36.1K followers, creator content grid">
+          <figcaption>Belgravia's Instagram today — active creator content from the engage phase.</figcaption>
+        </figure>
+      </li>
+    </ul>
+    <div class="note">The review counts and follower numbers above are the brand's current, live figures — not a before/after this project can claim credit for. Belgravia already had a review base before this engagement started, and the read on how the new site and creator strategy perform against the old ones is still pending.</div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">06</span>
+      <h2 class="stage-title">What I'd watch next</h2>
+    </div>
+    <div class="stage-body">
+      <p>The immediate test, once the engagement closes, is whether the editorial-first homepage and the ingredient-led photography actually move the needle on the same proof-not-promises gap the audit diagnosed — and whether the nano/micro creator model, still new for this brand, produces anything like the earned-media performance it's modeled on.</p>
+      <p>The harder discipline is the one the audit forced on me before anything else: a brand's case for luxury only holds if it's built from what's actually true about it — the reviews, the ingredient story, the occasion-led thinking already there — rather than heritage language it hasn't earned yet.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site" id="contact">
+  <div class="foot-block">
+    <span class="foot-label">Get in touch</span>
+    <p><a href="mailto:marviuzair28@gmail.com" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line);">marviuzair28@gmail.com</a><br>+92 334 2117246 &nbsp;·&nbsp; <a href="https://wa.me/923333731424" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line);">WhatsApp</a></p>
+  </div>
+  <div class="foot-block">
+    <span class="foot-label">Based</span>
+    <p>Karachi, Pakistan</p>
+  </div>
+  <div class="foot-block">
+    <span class="copyright">© 2026 Amna Chinoy</span>
+  </div>
+</footer>

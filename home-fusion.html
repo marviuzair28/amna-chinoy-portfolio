@@ -1,0 +1,249 @@
+<title>Home Fusion — Amna Chinoy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper:#FAF9F5; --ink:#1B1815; --ink-soft:#4C453D; --muted:#8C8172;
+    --accent:#7A2E3B; --warm:#B99A7F; --line:#E4DFD3;
+    --font-display:'Fraunces',ui-serif,Georgia,serif;
+    --font-body:'Public Sans',-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#16130F; --ink:#F1ECE3; --ink-soft:#C6BDAE; --muted:#8D8272;
+      --accent:#E5AAB4; --warm:#9C8267; --line:#332C22;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#16130F; --ink:#F1ECE3; --ink-soft:#C6BDAE; --muted:#8D8272;
+    --accent:#E5AAB4; --warm:#9C8267; --line:#332C22;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;}}
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+
+  .rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  header.site{display:flex;align-items:center;justify-content:space-between;padding:26px clamp(20px,5vw,64px);border-bottom:1px solid var(--line);}
+  .wordmark{font-family:var(--font-mono);font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .wordmark-block{display:flex;flex-direction:column;gap:3px;}
+  .wordmark-sub{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  nav.primary{display:flex;gap:28px;align-items:center;}
+  nav.primary a{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s, border-color .15s;}
+  nav.primary a:hover{color:var(--accent);border-color:var(--accent);}
+
+  .crumb{padding:9px clamp(20px,5vw,64px);border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:11.5px;letter-spacing:.03em;color:var(--muted);}
+  .crumb a{text-decoration:none;color:var(--muted);}
+  .crumb a:hover{color:var(--accent);}
+
+  main{max-width:1040px;margin:0 auto;padding:0 clamp(20px,5vw,64px);}
+
+  .hero{padding:clamp(48px,8vw,84px) 0 clamp(32px,5vw,48px);}
+  .eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 22px;display:block;}
+  h1.thesis{font-family:var(--font-display);font-weight:500;font-size:clamp(30px,5vw,48px);line-height:1.14;letter-spacing:-.01em;margin:0 0 26px;max-width:20ch;text-wrap:balance;}
+  .hero-body{font-size:clamp(16px,1.7vw,18.5px);line-height:1.7;color:var(--ink-soft);max-width:66ch;margin:0;}
+
+  .case-meta{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:0;margin:clamp(36px,5vw,52px) 0;}
+  .cm{padding:18px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:baseline;}
+  .cm:last-child{border-bottom:none;}
+  .cm-label{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
+  .cm-value{font-size:15.5px;color:var(--ink);}
+  @media (min-width:700px){
+    .case-meta{grid-template-columns:1fr 1fr 1fr;border-bottom:none;}
+    .cm{border-bottom:none;border-right:1px solid var(--line);padding:0 22px;grid-template-columns:1fr;gap:8px;}
+    .cm:first-child{padding-left:0;}
+    .cm:last-child{border-right:none;padding-right:0;}
+  }
+
+  section.stage{border-top:1px solid var(--line);padding:clamp(44px,7vw,68px) 0;}
+  .stage-head{display:grid;grid-template-columns:44px 1fr;gap:20px;margin-bottom:22px;}
+  .stage-index{font-family:var(--font-mono);font-size:12px;color:var(--accent);padding-top:6px;}
+  .stage-title{font-family:var(--font-display);font-size:clamp(22px,3vw,30px);font-weight:500;margin:0;}
+  .stage-body{margin:0 0 0 64px;max-width:64ch;}
+  .stage-body p{font-size:15.5px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .stage-body p:last-child{margin-bottom:0;}
+  @media (max-width:560px){.stage-body{margin-left:0;}}
+
+  .gallery{display:grid;grid-template-columns:1fr;gap:16px;margin:30px 0 0 64px;}
+  @media (min-width:560px){.gallery.g2{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.gallery{margin-left:0;}}
+  .gallery-item{border:1px solid var(--line);background:var(--line);}
+  .gallery-item img{width:100%;height:auto;}
+  .gallery-cap{font-family:var(--font-mono);font-size:11px;letter-spacing:.02em;color:var(--muted);padding:10px 12px;border-top:1px solid var(--line);background:var(--paper);}
+
+  .feature{margin:30px 0 0 64px;border:1px solid var(--line);}
+  .feature img{width:100%;height:auto;}
+  .feature-cap{font-family:var(--font-mono);font-size:11px;letter-spacing:.02em;color:var(--muted);padding:10px 12px;border-top:1px solid var(--line);}
+  @media (max-width:560px){.feature{margin-left:0;}}
+
+  footer.site{border-top:1px solid var(--line);padding:clamp(36px,6vw,52px) 0 60px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;}
+  .foot-block .foot-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;}
+  .foot-block p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+  .foot-placeholder{font-family:var(--font-mono);font-size:12.5px;color:var(--warm);border:1px dashed var(--line);padding:8px 12px;border-radius:3px;display:inline-block;}
+  .copyright{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+</style>
+
+<header class="site">
+  <div class="wordmark-block">
+    <a class="wordmark" href="index.html">Amna Chinoy</a>
+    <span class="wordmark-sub">Marvi Uzair</span>
+  </div>
+  <nav class="primary">
+    <a href="index.html#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+<div class="crumb"><a href="index.html#work">Work</a> / Home Fusion</div>
+
+<main>
+
+  <section class="hero" id="top">
+    <span class="eyebrow rise" style="animation-delay:.02s">Case study — 04</span>
+    <h1 class="thesis rise" style="animation-delay:.1s">Turning a Frankfurt trade-fair stand into buyer commitment.</h1>
+    <p class="hero-body rise" style="animation-delay:.18s">Home Fusion is a Pakistan-based B2B home-textile export business — cushions, throws, tea towels, bedding and totes, sold to buyers rather than direct consumers. Over two years and two Heimtextil fairs in Frankfurt, I worked the commercial and creative side of the stand: product development and selection, stand direction, buyer engagement, and turning a conversation at the booth into an actual order.</p>
+
+    <div class="case-meta rise" style="animation-delay:.26s">
+      <div class="cm"><span class="cm-label">Role</span><span class="cm-value">Commercial &amp; Creative</span></div>
+      <div class="cm"><span class="cm-label">Duration</span><span class="cm-value">2 years, two Heimtextil fairs</span></div>
+      <div class="cm"><span class="cm-label">Scope</span><span class="cm-value">Product development · Exhibition strategy · Stand direction · Buyer engagement · Sourcing liaison</span></div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">01</span>
+      <h2 class="stage-title">Situation</h2>
+    </div>
+    <div class="stage-body">
+      <p>Home Fusion needed someone at Heimtextil — one of the textile industry's largest trade fairs, held annually in Frankfurt — who could do more than staff the stand: read which products a European buyer would actually commit to, and carry a conversation from interested to ordered, inside a few days on the show floor.</p>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">02</span>
+      <h2 class="stage-title">Decision</h2>
+    </div>
+    <div class="stage-body">
+      <p>I took on the stand itself, not just the products on it — exhibition strategy and stand direction, deciding what got displayed and how — alongside acting as a sourcing liaison between visiting European buyers and the company, helping match what buyers were actually asking for against what could be produced.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/home-fusion/img1.jpg" alt="The Home Fusion stand at Heimtextil, Frankfurt">
+      <div class="feature-cap">The Home Fusion stand at Heimtextil — the room I was directly responsible for.</div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">03</span>
+      <h2 class="stage-title">Approach</h2>
+    </div>
+    <div class="stage-body">
+      <p>Day to day at the fair meant product development and selection across the range — tufted and fringed cushion covers, totes, tea towels, printed bedding — direction of how the stand itself presented that range, and direct buyer engagement: sitting down with visiting buyers, walking them through the collection, and handling customer care once a relationship started.</p>
+    </div>
+    <div class="gallery g2">
+      <figure class="gallery-item">
+        <img src="assets/home-fusion/img2.jpg" alt="Home Fusion cushion range displayed against the brand wall">
+        <figcaption class="gallery-cap">Cushion range, displayed against the Home Fusion stand wall.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/home-fusion/img3.jpg" alt="A Home Fusion tote bag, product detail">
+        <figcaption class="gallery-cap">Product detail — one of the tote designs in the range.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">04</span>
+      <h2 class="stage-title">Testing</h2>
+    </div>
+    <div class="stage-body">
+      <p>Fabric and pattern choices were tested directly against buyer reaction on the floor — which colorways and textures drew people in versus which needed more explanation — and against the compliance credentials international buyers actually asked about: OEKO-TEX Standard 100, BSCI social-compliance membership, and ISO 9001 registration.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/home-fusion/img4.jpg" alt="Home Fusion's OEKO-TEX, BSCI and ISO 9001 compliance signage on the stand">
+      <div class="feature-cap">The compliance credentials that came up in nearly every serious buyer conversation.</div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">05</span>
+      <h2 class="stage-title">Signal</h2>
+    </div>
+    <div class="stage-body">
+      <p>Repeat interest across both fairs was the clearest signal of what was working — product lines that consistently pulled buyers into a real sit-down conversation, like the tufted cushion range and the printed bedding, became the ones worth carrying forward to the next fair.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/home-fusion/img5.jpg" alt="A printed bedding set on display at the Home Fusion stand">
+      <div class="feature-cap">The printed bedding line — one of the ranges that consistently drew buyers in.</div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">06</span>
+      <h2 class="stage-title">Action</h2>
+    </div>
+    <div class="stage-body">
+      <p>Once a buyer showed real interest, the job shifted to closing: sitting with them at the stand, going through specifics, and, where needed, acting as the sourcing link between what a buyer wanted and what the company could actually produce and ship.</p>
+    </div>
+    <div class="gallery g2">
+      <figure class="gallery-item">
+        <img src="assets/home-fusion/img6.jpg" alt="A buyer meeting at the Home Fusion stand">
+        <figcaption class="gallery-cap">A buyer meeting at the stand, Heimtextil.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/home-fusion/img7.jpg" alt="A second buyer meeting at the Home Fusion stand">
+        <figcaption class="gallery-cap">Another meeting, same fair — the work repeated, buyer by buyer.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">07</span>
+      <h2 class="stage-title">Result</h2>
+    </div>
+    <div class="stage-body">
+      <p>Two Heimtextil fairs in, that's meant real buyer meetings converted at the stand — not just booth traffic, but people sitting down, going through the range, and moving toward an order.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/home-fusion/img8.jpg" alt="On the show floor at Heimtextil, Frankfurt">
+      <div class="feature-cap">On the show floor, Heimtextil, Frankfurt.</div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">08</span>
+      <h2 class="stage-title">Learning</h2>
+    </div>
+    <div class="stage-body">
+      <p>A trade-fair stand is a different kind of conversion moment than a Meta ad or a campaign post — there's no retargeting, no second chance if the read on a buyer is wrong in the room. It sharpened a specific skill: making the sourcing and commercial case for a product, face to face, in the time it takes someone to stop walking.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site" id="contact">
+  <div class="foot-block">
+    <span class="foot-label">Get in touch</span>
+    <p><a href="mailto:marviuzair28@gmail.com" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line);">marviuzair28@gmail.com</a><br>+92 334 2117246 &nbsp;·&nbsp; <a href="https://wa.me/923333731424" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line);">WhatsApp</a></p>
+  </div>
+  <div class="foot-block">
+    <span class="foot-label">Based</span>
+    <p>Karachi, Pakistan</p>
+  </div>
+  <div class="foot-block">
+    <span class="copyright">© 2026 Amna Chinoy</span>
+  </div>
+</footer>
