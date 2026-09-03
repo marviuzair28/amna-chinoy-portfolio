@@ -1,0 +1,190 @@
+<title>About — Amna Chinoy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper:#FAF9F5;
+    --ink:#1B1815;
+    --ink-soft:#4C453D;
+    --muted:#8C8172;
+    --accent:#7A2E3B;
+    --warm:#B99A7F;
+    --line:#E4DFD3;
+    --font-display:'Fraunces',ui-serif,Georgia,serif;
+    --font-body:'Public Sans',-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#16130F; --ink:#F1ECE3; --ink-soft:#C6BDAE; --muted:#8D8272;
+      --accent:#E5AAB4; --warm:#9C8267; --line:#332C22;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#16130F; --ink:#F1ECE3; --ink-soft:#C6BDAE; --muted:#8D8272;
+    --accent:#E5AAB4; --warm:#9C8267; --line:#332C22;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;}}
+  a{color:inherit;}
+
+  .rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  header.site{display:flex;align-items:center;justify-content:space-between;padding:26px clamp(20px,5vw,64px);border-bottom:1px solid var(--line);}
+  .wordmark{font-family:var(--font-mono);font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .wordmark-block{display:flex;flex-direction:column;gap:3px;}
+  .wordmark-sub{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  nav.primary{display:flex;gap:28px;align-items:center;}
+  nav.primary a, nav.primary span{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;}
+  nav.primary a{text-decoration:none;color:var(--ink-soft);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s, border-color .15s;}
+  nav.primary a:hover{color:var(--accent);border-color:var(--accent);}
+  nav.primary a.current{color:var(--accent);border-color:var(--accent);}
+
+  main{max-width:1040px;margin:0 auto;padding:0 clamp(20px,5vw,64px);}
+
+  .hero{padding:clamp(56px,10vw,100px) 0 clamp(36px,6vw,56px);}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:start;}
+  .eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 22px;display:block;}
+  h1.thesis{font-family:var(--font-display);font-weight:500;font-size:clamp(30px,5vw,50px);line-height:1.14;letter-spacing:-.01em;margin:0 0 30px;max-width:20ch;text-wrap:balance;}
+  .hero-body{font-size:clamp(16px,1.7vw,18.5px);line-height:1.7;color:var(--ink-soft);max-width:66ch;margin:0;}
+  .hero-body + .hero-body{margin-top:18px;}
+  .portrait-frame{
+    order:-1;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--line);
+  }
+  .portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;display:block;}
+  .portrait-cap{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:.05em;
+    color:var(--muted);
+    margin-top:10px;
+  }
+  @media (min-width:800px){
+    .hero-grid{grid-template-columns:1.3fr .8fr;gap:56px;}
+    .portrait-frame{order:0;}
+  }
+
+  .facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:0;margin:clamp(44px,6vw,64px) 0;}
+  .fact{padding:20px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:baseline;}
+  .fact:last-child{border-bottom:none;}
+  .fact-label{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
+  .fact-value{font-size:16px;color:var(--ink);}
+  .fact-value.name-value{font-family:var(--font-display);font-size:19px;}
+  @media (min-width:640px){.facts{grid-template-columns:1fr 1fr 1fr;border-bottom:none;}
+    .fact{border-bottom:none;border-right:1px solid var(--line);padding:0 24px;grid-template-columns:1fr;gap:8px;}
+    .fact:first-child{padding-left:0;}
+    .fact:last-child{border-right:none;padding-right:0;}
+  }
+
+  section.principles{padding:clamp(40px,6vw,64px) 0 clamp(60px,8vw,88px);}
+  .section-label{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;display:block;}
+  .principle-list{list-style:none;margin:0;padding:0;}
+  .principle{display:grid;grid-template-columns:44px 1fr;gap:20px;padding:28px 0;border-top:1px solid var(--line);}
+  .principle:last-child{border-bottom:1px solid var(--line);}
+  .principle-mark{font-family:var(--font-display);font-style:italic;font-size:26px;color:var(--accent);line-height:1;}
+  .principle-title{font-family:var(--font-display);font-size:clamp(19px,2.2vw,23px);font-weight:500;margin:0 0 8px;}
+  .principle-body{font-size:15px;color:var(--ink-soft);max-width:58ch;margin:0;}
+
+  footer.site{border-top:1px solid var(--line);padding:clamp(36px,6vw,52px) 0 60px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;}
+  .foot-block .foot-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;}
+  .foot-block p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+  .foot-placeholder{font-family:var(--font-mono);font-size:12.5px;color:var(--warm);border:1px dashed var(--line);padding:8px 12px;border-radius:3px;display:inline-block;}
+  .copyright{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+</style>
+
+<header class="site">
+  <div class="wordmark-block">
+    <a class="wordmark" href="index.html">Amna Chinoy</a>
+    <span class="wordmark-sub">Marvi Uzair</span>
+  </div>
+  <nav class="primary">
+    <a href="index.html#work">Work</a>
+    <a href="#top" class="current">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow rise" style="animation-delay:.02s">About</span>
+        <h1 class="thesis rise" style="animation-delay:.1s">One instinct, four very different rooms.</h1>
+        <p class="hero-body rise" style="animation-delay:.18s">I've built a brand from nothing and carried its P&amp;L, as founder of TOGS-88. I've set someone else's creative and brand vision as a partner, not a founder, at KIYAM. I've walked into an unfamiliar market as the outside strategist with no prior relationship to the brand, on Belgravia Scents through Proplex. And I've stood at a trade-fair booth turning a stranger's interest into a signed order, for Home Fusion.</p>
+        <p class="hero-body rise" style="animation-delay:.24s">Four rooms, four different levels of authority, four different kinds of pressure. The instinct underneath all of them is the same: treat the brand decision, the creative decision and the commercial result as connected parts of one system — not three separate jobs handed to three separate people.</p>
+      </div>
+      <div class="rise" style="animation-delay:.14s">
+        <div class="portrait-frame">
+          <img src="assets/about/img1.jpg" alt="Amna Chinoy">
+        </div>
+        <p class="portrait-cap">Amna Chinoy</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="facts rise" style="animation-delay:.3s">
+    <div class="fact">
+      <span class="fact-label">Name</span>
+      <span class="fact-value name-value">Professionally known as Amna Chinoy; born Marvi Uzair.</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Based</span>
+      <span class="fact-value">Karachi, Pakistan</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Focus</span>
+      <span class="fact-value">D2C · Luxury · B2B export</span>
+    </div>
+  </div>
+
+  <section class="principles">
+    <span class="section-label">How I work</span>
+    <ul class="principle-list">
+      <li class="principle">
+        <span class="principle-mark">01</span>
+        <div>
+          <h3 class="principle-title">I follow the idea into the number.</h3>
+          <p class="principle-body">A creative concept isn't finished when it looks right — it's finished when I know what it did to conversion, cost per purchase, or a signed order. That's why I took TOGS's Meta advertising in-house rather than continuing to hand the follow-through to someone else.</p>
+        </div>
+      </li>
+      <li class="principle">
+        <span class="principle-mark">02</span>
+        <div>
+          <h3 class="principle-title">I've sat on both sides of the table.</h3>
+          <p class="principle-body">Founder, partner, freelance strategist, and — at a trade-fair booth — the person actually closing the conversation. Each seat changes what advice I'm willing to give, because I've had to live with the consequences of the version where I was wrong.</p>
+        </div>
+      </li>
+      <li class="principle">
+        <span class="principle-mark">03</span>
+        <div>
+          <h3 class="principle-title">I test before I claim.</h3>
+          <p class="principle-body">TOGS's Meta account has been mine to run since mid-August 2026. I'm not going to tell you it's been years — I'll tell you exactly what changed in that window, what I still don't know, and what I'm testing next.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site" id="contact">
+  <div class="foot-block">
+    <span class="foot-label">Get in touch</span>
+    <p><a href="mailto:marviuzair28@gmail.com" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line);">marviuzair28@gmail.com</a><br>+92 334 2117246 &nbsp;·&nbsp; <a href="https://wa.me/923333731424" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line);">WhatsApp</a></p>
+  </div>
+  <div class="foot-block">
+    <span class="foot-label">Based</span>
+    <p>Karachi, Pakistan</p>
+  </div>
+  <div class="foot-block">
+    <span class="copyright">© 2026 Amna Chinoy</span>
+  </div>
+</footer>
