@@ -1,0 +1,296 @@
+<title>TOGS-88 — Amna Chinoy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper:#FAF9F5; --ink:#1B1815; --ink-soft:#4C453D; --muted:#8C8172;
+    --accent:#7A2E3B; --warm:#B99A7F; --line:#E4DFD3;
+    --font-display:'Fraunces',ui-serif,Georgia,serif;
+    --font-body:'Public Sans',-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#16130F; --ink:#F1ECE3; --ink-soft:#C6BDAE; --muted:#8D8272;
+      --accent:#E5AAB4; --warm:#9C8267; --line:#332C22;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#16130F; --ink:#F1ECE3; --ink-soft:#C6BDAE; --muted:#8D8272;
+    --accent:#E5AAB4; --warm:#9C8267; --line:#332C22;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;}}
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+
+  .rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  header.site{display:flex;align-items:center;justify-content:space-between;padding:26px clamp(20px,5vw,64px);border-bottom:1px solid var(--line);}
+  .wordmark{font-family:var(--font-mono);font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .wordmark-block{display:flex;flex-direction:column;gap:3px;}
+  .wordmark-sub{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  nav.primary{display:flex;gap:28px;align-items:center;}
+  nav.primary a{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s, border-color .15s;}
+  nav.primary a:hover{color:var(--accent);border-color:var(--accent);}
+
+  .crumb{padding:9px clamp(20px,5vw,64px);border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:11.5px;letter-spacing:.03em;color:var(--muted);}
+  .crumb a{text-decoration:none;color:var(--muted);}
+  .crumb a:hover{color:var(--accent);}
+
+  main{max-width:1040px;margin:0 auto;padding:0 clamp(20px,5vw,64px);}
+
+  .hero{padding:clamp(48px,8vw,84px) 0 clamp(32px,5vw,48px);}
+  .eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 22px;display:block;}
+  h1.thesis{font-family:var(--font-display);font-weight:500;font-size:clamp(30px,5vw,48px);line-height:1.14;letter-spacing:-.01em;margin:0 0 26px;max-width:19ch;text-wrap:balance;}
+  .hero-body{font-size:clamp(16px,1.7vw,18.5px);line-height:1.7;color:var(--ink-soft);max-width:66ch;margin:0;}
+
+  .case-meta{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:0;margin:clamp(36px,5vw,52px) 0;}
+  .cm{padding:18px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:baseline;}
+  .cm:last-child{border-bottom:none;}
+  .cm-label{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
+  .cm-value{font-size:15.5px;color:var(--ink);}
+  @media (min-width:700px){
+    .case-meta{grid-template-columns:1fr 1fr 1fr;border-bottom:none;}
+    .cm{border-bottom:none;border-right:1px solid var(--line);padding:0 22px;grid-template-columns:1fr;gap:8px;}
+    .cm:first-child{padding-left:0;}
+    .cm:last-child{border-right:none;padding-right:0;}
+  }
+
+  section.stage{border-top:1px solid var(--line);padding:clamp(44px,7vw,68px) 0;}
+  .stage-head{display:grid;grid-template-columns:44px 1fr;gap:20px;margin-bottom:22px;}
+  .stage-index{font-family:var(--font-mono);font-size:12px;color:var(--accent);padding-top:6px;}
+  .stage-title{font-family:var(--font-display);font-size:clamp(22px,3vw,30px);font-weight:500;margin:0;}
+  .stage-body{margin:0 0 0 64px;max-width:64ch;}
+  .stage-body p{font-size:15.5px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .stage-body p:last-child{margin-bottom:0;}
+  @media (max-width:560px){.stage-body{margin-left:0;}}
+
+  .gallery{display:grid;grid-template-columns:1fr;gap:16px;margin:30px 0 0 64px;}
+  @media (min-width:560px){.gallery.g2{grid-template-columns:1fr 1fr;}}
+  @media (min-width:720px){.gallery.g3{grid-template-columns:1fr 1fr 1fr;}}
+  @media (max-width:560px){.gallery{margin-left:0;}}
+  .gallery-item{border:1px solid var(--line);background:var(--line);}
+  .gallery-item img{width:100%;height:auto;}
+  .gallery-cap{font-family:var(--font-mono);font-size:11px;letter-spacing:.02em;color:var(--muted);padding:10px 12px;border-top:1px solid var(--line);background:var(--paper);}
+
+  .feature{margin:30px 0 0 64px;border:1px solid var(--line);}
+  .feature img{width:100%;height:auto;}
+  .feature-cap{font-family:var(--font-mono);font-size:11px;letter-spacing:.02em;color:var(--muted);padding:10px 12px;border-top:1px solid var(--line);}
+  @media (max-width:560px){.feature{margin-left:0;}}
+
+  .stats{display:grid;grid-template-columns:1fr;gap:0;margin:30px 0 0 64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  @media (min-width:560px){.stats{grid-template-columns:1fr 1fr 1fr;}}
+  @media (max-width:560px){.stats{margin-left:0;}}
+  .stat{padding:20px 22px;border-bottom:1px solid var(--line);}
+  @media (min-width:560px){.stat{border-bottom:none;border-right:1px solid var(--line);padding:20px 24px;}
+    .stat:first-child{padding-left:0;}
+    .stat:last-child{border-right:none;padding-right:0;}
+  }
+  .stat:last-child{border-bottom:none;}
+  .stat-num{font-family:var(--font-display);font-size:clamp(26px,3vw,34px);font-weight:500;color:var(--ink);display:block;}
+  .stat-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:4px;display:block;}
+  .stat-source{font-size:12.5px;color:var(--muted);margin-top:10px;}
+
+  .note{margin:30px 0 0 64px;padding:16px 18px;border:1px dashed var(--line);font-size:13.5px;line-height:1.6;color:var(--ink-soft);max-width:60ch;}
+  @media (max-width:560px){.note{margin-left:0;}}
+
+  footer.site{border-top:1px solid var(--line);padding:clamp(36px,6vw,52px) 0 60px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;}
+  .foot-block .foot-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;}
+  .foot-block p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+  .foot-placeholder{font-family:var(--font-mono);font-size:12.5px;color:var(--warm);border:1px dashed var(--line);padding:8px 12px;border-radius:3px;display:inline-block;}
+  .copyright{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+</style>
+
+<header class="site">
+  <div class="wordmark-block">
+    <a class="wordmark" href="index.html">Amna Chinoy</a>
+    <span class="wordmark-sub">Marvi Uzair</span>
+  </div>
+  <nav class="primary">
+    <a href="index.html#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+<div class="crumb"><a href="index.html#work">Work</a> / TOGS-88</div>
+
+<main>
+
+  <section class="hero" id="top">
+    <span class="eyebrow rise" style="animation-delay:.02s">Case study — 01</span>
+    <h1 class="thesis rise" style="animation-delay:.1s">Building TOGS-88 from a name to a brand people wait for.</h1>
+    <p class="hero-body rise" style="animation-delay:.18s">TOGS-88 — "The Original Good Stuff" — is a direct-to-consumer loungewear label: comfort-led fits, easy silhouettes, everyday colors. I founded it, and for five years I've run it across product, brand, content, the store and customer experience — and since mid-August 2026, its Meta advertising as well.</p>
+
+    <div class="case-meta rise" style="animation-delay:.26s">
+      <div class="cm"><span class="cm-label">Role</span><span class="cm-value">Founder</span></div>
+      <div class="cm"><span class="cm-label">Duration</span><span class="cm-value">5 years, ongoing</span></div>
+      <div class="cm"><span class="cm-label">Scope</span><span class="cm-value">Brand · Product · Content · E-commerce · CX · Paid social</span></div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">01</span>
+      <h2 class="stage-title">Situation</h2>
+    </div>
+    <div class="stage-body">
+      <p>There was no loungewear on the market I actually wanted to wear or buy — most of what was available locally was either fast-fashion basic or priced like occasionwear for something you sleep in. I wanted to build "the original good stuff": comfort-led fits, in colors and prints people would actually reach for, made to be worn on repeat rather than sold as a single-season drop.</p>
+      <p>I started with no existing supply chain, no distribution, and no audience — just a name, a fit philosophy, and a willingness to run every part of it myself.</p>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">02</span>
+      <h2 class="stage-title">Decision</h2>
+    </div>
+    <div class="stage-body">
+      <p>Rather than launching a broad clothing line, I committed to a narrow proposition: oversized, unisex-leaning loungewear — nightsuits, joggers, tees and fleece sets — sold direct-to-consumer through my own store and Instagram, not through wholesale or marketplaces. Staying narrow meant every fabric, fit and colorway decision could serve one clear idea instead of being pulled in different directions.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/togs-88/img1.jpg" alt="The TOGS-88 woven and leather brand tags, the literal mark of that early decision">
+      <div class="feature-cap">The brand mark — the point where "an idea for a loungewear label" became a tag sewn into an actual garment.</div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">03</span>
+      <h2 class="stage-title">Approach</h2>
+    </div>
+    <div class="stage-body">
+      <p>Building TOGS-88 has meant owning the full chain: product development across fabric and fit (solids, tie-dye, florals, fleece), a Shopify storefront built and run in-house, and a content system on Instagram — @wear.togs — that pairs clean product photography with founder-shot behind-the-scenes and a deliberately playful voice: outfit receipts, pop-culture riffs, shoot-day BTS. Brand, product and content were never separate workstreams here — the same person made the call on all three.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/togs-88/img2.jpg" alt="The TOGS-88 Shopify storefront homepage, showing the Pretty Solid collection">
+      <div class="feature-cap">togseighty-8.pk — the store, built and run in-house.</div>
+    </div>
+    <div class="gallery g2">
+      <figure class="gallery-item">
+        <img src="assets/togs-88/img3.jpg" alt="A tie-dye TOGS-88 loungewear set, product photography">
+        <figcaption class="gallery-cap">Product photography — one of several tie-dye colorways.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/togs-88/img4.jpg" alt="A group photo in TOGS-88 fleece wear, unisex fit">
+        <figcaption class="gallery-cap">Fleece Wear Unisex — shot on real customers and friends of the brand.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">04</span>
+      <h2 class="stage-title">Testing</h2>
+    </div>
+    <div class="stage-body">
+      <p>Over five years, close to everything has been treated as testable rather than fixed: new colorways and silhouettes released as small drops instead of full seasonal collections, pricing and discount structures run and compared against each other, and content formats — grid posts against Reels against Stories — read against what actually drove saves, DMs and completed sales rather than likes.</p>
+    </div>
+    <div class="gallery g2">
+      <figure class="gallery-item">
+        <img src="assets/togs-88/img5.jpg" alt="TOGS-88 Flat 20% Off campaign creative">
+        <figcaption class="gallery-cap">A standard discount push — Flat 20% Off, Pretty Solid collection.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/togs-88/img6.jpg" alt="TOGS-88 Azadi Sale campaign creative, tied to Pakistan's Independence Day">
+        <figcaption class="gallery-cap">A calendar-tied promotion — the Azadi Sale, run around Independence Day.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">05</span>
+      <h2 class="stage-title">Signal</h2>
+    </div>
+    <div class="stage-body">
+      <p>The clearest read on what was working came directly from the audience: an Instagram following built organically to 28.5K, product drops that sold through fast enough to prompt "you asked, you shopped, you sold it out" follow-up content, and customers returning across multiple product lines rather than buying once.</p>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num">28.5K</span>
+        <span class="stat-label">Instagram followers</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">165</span>
+        <span class="stat-label">Posts, organic content</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Years live, self-funded</span>
+      </div>
+    </div>
+    <p class="stat-source" style="margin-left:64px;">Source: @wear.togs public profile.</p>
+    <div class="gallery g2">
+      <figure class="gallery-item">
+        <img src="assets/togs-88/img7.jpg" alt="The @wear.togs Instagram profile, showing follower count and bio">
+        <figcaption class="gallery-cap">@wear.togs — the audience the content and product decisions were tested against.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/togs-88/img8.jpg" alt="A TOGS-88 sold-out announcement: You asked. You shopped. You sold it out.">
+        <figcaption class="gallery-cap">A restock-driven sellout, turned into its own piece of content.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">06</span>
+      <h2 class="stage-title">Action</h2>
+    </div>
+    <div class="stage-body">
+      <p>TOGS-88's Meta advertising was originally run through an outside agency. When I wasn't satisfied with the results I was seeing, I made the decision to take the ad account in-house myself, starting mid-August 2026 — moving media buying, creative testing and reporting into the same hands already running the brand, product and content.</p>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">07</span>
+      <h2 class="stage-title">Result</h2>
+    </div>
+    <div class="stage-body">
+      <p>Five years in, TOGS-88 is a functioning, self-sustaining D2C brand: an owned store, an organically built and engaged audience, and repeat drops that sell through. As of this case study, I'm also the person directly accountable for how the brand's paid media budget is spent, rather than a client waiting on someone else's report.</p>
+    </div>
+    <div class="gallery g2">
+      <figure class="gallery-item">
+        <img src="assets/togs-88/img9.jpg" alt="A TOGS-88 floral nightsuit shot as lifestyle content">
+        <figcaption class="gallery-cap">Lifestyle photography — the floral nightsuit line.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/togs-88/img10.jpg" alt="TOGS-88 storefront">
+        <figcaption class="gallery-cap">The store the brand now runs on — built and maintained in-house.</figcaption>
+      </figure>
+    </div>
+    <div class="note">The detailed performance numbers behind moving TOGS-88's Meta account in-house — spend, cost per purchase, ROAS, before and after — are covered on their own, in the Performance Advertising chapter, so they can be shown properly rather than folded into this page.</div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">08</span>
+      <h2 class="stage-title">Learning</h2>
+    </div>
+    <div class="stage-body">
+      <p>Running the creative and commercial sides of the same brand removed a translation layer I felt everywhere else — no brief handed off, no waiting on someone else's read of what a number meant. The tradeoff is real: five years of being the only person who has to be right about fit, fabric, price and content at once.</p>
+      <p>That's the habit I now bring into the accounts I run for other people — don't hand off the parts of a decision you can't verify yourself.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site" id="contact">
+  <div class="foot-block">
+    <span class="foot-label">Get in touch</span>
+    <p><a href="mailto:marviuzair28@gmail.com" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line);">marviuzair28@gmail.com</a><br>+92 334 2117246 &nbsp;·&nbsp; <a href="https://wa.me/923333731424" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line);">WhatsApp</a></p>
+  </div>
+  <div class="foot-block">
+    <span class="foot-label">Based</span>
+    <p>Karachi, Pakistan</p>
+  </div>
+  <div class="foot-block">
+    <span class="copyright">© 2026 Amna Chinoy</span>
+  </div>
+</footer>

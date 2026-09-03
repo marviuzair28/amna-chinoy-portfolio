@@ -1,0 +1,280 @@
+<title>KIYAM — Amna Chinoy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper:#FAF9F5; --ink:#1B1815; --ink-soft:#4C453D; --muted:#8C8172;
+    --accent:#7A2E3B; --warm:#B99A7F; --line:#E4DFD3;
+    --font-display:'Fraunces',ui-serif,Georgia,serif;
+    --font-body:'Public Sans',-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#16130F; --ink:#F1ECE3; --ink-soft:#C6BDAE; --muted:#8D8272;
+      --accent:#E5AAB4; --warm:#9C8267; --line:#332C22;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#16130F; --ink:#F1ECE3; --ink-soft:#C6BDAE; --muted:#8D8272;
+    --accent:#E5AAB4; --warm:#9C8267; --line:#332C22;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;}}
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+
+  .rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  header.site{display:flex;align-items:center;justify-content:space-between;padding:26px clamp(20px,5vw,64px);border-bottom:1px solid var(--line);}
+  .wordmark{font-family:var(--font-mono);font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .wordmark-block{display:flex;flex-direction:column;gap:3px;}
+  .wordmark-sub{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  nav.primary{display:flex;gap:28px;align-items:center;}
+  nav.primary a{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s, border-color .15s;}
+  nav.primary a:hover{color:var(--accent);border-color:var(--accent);}
+
+  .crumb{padding:9px clamp(20px,5vw,64px);border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:11.5px;letter-spacing:.03em;color:var(--muted);}
+  .crumb a{text-decoration:none;color:var(--muted);}
+  .crumb a:hover{color:var(--accent);}
+
+  main{max-width:1040px;margin:0 auto;padding:0 clamp(20px,5vw,64px);}
+
+  .hero{padding:clamp(48px,8vw,84px) 0 clamp(32px,5vw,48px);}
+  .eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 22px;display:block;}
+  h1.thesis{font-family:var(--font-display);font-weight:500;font-size:clamp(30px,5vw,48px);line-height:1.14;letter-spacing:-.01em;margin:0 0 26px;max-width:20ch;text-wrap:balance;}
+  .hero-body{font-size:clamp(16px,1.7vw,18.5px);line-height:1.7;color:var(--ink-soft);max-width:66ch;margin:0;}
+
+  .case-meta{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:0;margin:clamp(36px,5vw,52px) 0;}
+  .cm{padding:18px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:baseline;}
+  .cm:last-child{border-bottom:none;}
+  .cm-label{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
+  .cm-value{font-size:15.5px;color:var(--ink);}
+  @media (min-width:700px){
+    .case-meta{grid-template-columns:1fr 1fr 1fr;border-bottom:none;}
+    .cm{border-bottom:none;border-right:1px solid var(--line);padding:0 22px;grid-template-columns:1fr;gap:8px;}
+    .cm:first-child{padding-left:0;}
+    .cm:last-child{border-right:none;padding-right:0;}
+  }
+
+  section.stage{border-top:1px solid var(--line);padding:clamp(44px,7vw,68px) 0;}
+  .stage-head{display:grid;grid-template-columns:44px 1fr;gap:20px;margin-bottom:22px;}
+  .stage-index{font-family:var(--font-mono);font-size:12px;color:var(--accent);padding-top:6px;}
+  .stage-title{font-family:var(--font-display);font-size:clamp(22px,3vw,30px);font-weight:500;margin:0;}
+  .stage-body{margin:0 0 0 64px;max-width:64ch;}
+  .stage-body p{font-size:15.5px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .stage-body p:last-child{margin-bottom:0;}
+  @media (max-width:560px){.stage-body{margin-left:0;}}
+
+  .gallery{display:grid;grid-template-columns:1fr;gap:16px;margin:30px 0 0 64px;}
+  @media (min-width:560px){.gallery.g2{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.gallery{margin-left:0;}}
+  .gallery-item{border:1px solid var(--line);background:var(--line);}
+  .gallery-item img{width:100%;height:auto;}
+  .gallery-cap{font-family:var(--font-mono);font-size:11px;letter-spacing:.02em;color:var(--muted);padding:10px 12px;border-top:1px solid var(--line);background:var(--paper);}
+
+  .feature{margin:30px 0 0 64px;border:1px solid var(--line);}
+  .feature img{width:100%;height:auto;}
+  .feature-cap{font-family:var(--font-mono);font-size:11px;letter-spacing:.02em;color:var(--muted);padding:10px 12px;border-top:1px solid var(--line);}
+  @media (max-width:560px){.feature{margin-left:0;}}
+
+  .stats{display:grid;grid-template-columns:1fr;gap:0;margin:30px 0 0 64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  @media (min-width:560px){.stats{grid-template-columns:1fr 1fr 1fr;}}
+  @media (max-width:560px){.stats{margin-left:0;}}
+  .stat{padding:20px 22px;border-bottom:1px solid var(--line);}
+  @media (min-width:560px){.stat{border-bottom:none;border-right:1px solid var(--line);padding:20px 24px;}
+    .stat:first-child{padding-left:0;}
+    .stat:last-child{border-right:none;padding-right:0;}
+  }
+  .stat:last-child{border-bottom:none;}
+  .stat-num{font-family:var(--font-display);font-size:clamp(26px,3vw,34px);font-weight:500;color:var(--ink);display:block;}
+  .stat-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:4px;display:block;}
+  .stat-source{font-size:12.5px;color:var(--muted);margin-top:10px;}
+
+  .note{margin:30px 0 0 64px;padding:16px 18px;border:1px dashed var(--line);font-size:13.5px;line-height:1.6;color:var(--ink-soft);max-width:60ch;}
+  @media (max-width:560px){.note{margin-left:0;}}
+
+  footer.site{border-top:1px solid var(--line);padding:clamp(36px,6vw,52px) 0 60px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;}
+  .foot-block .foot-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;}
+  .foot-block p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+  .foot-placeholder{font-family:var(--font-mono);font-size:12.5px;color:var(--warm);border:1px dashed var(--line);padding:8px 12px;border-radius:3px;display:inline-block;}
+  .copyright{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
+</style>
+
+<header class="site">
+  <div class="wordmark-block">
+    <a class="wordmark" href="index.html">Amna Chinoy</a>
+    <span class="wordmark-sub">Marvi Uzair</span>
+  </div>
+  <nav class="primary">
+    <a href="index.html#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+<div class="crumb"><a href="index.html#work">Work</a> / KIYAM</div>
+
+<main>
+
+  <section class="hero" id="top">
+    <span class="eyebrow rise" style="animation-delay:.02s">Case study — 02</span>
+    <h1 class="thesis rise" style="animation-delay:.1s">Taking KIYAM's creative direction from concept to a finished campaign.</h1>
+    <p class="hero-body rise" style="animation-delay:.18s">KIYAM Dhedhi is a Pakistani bridal and luxury prêt label. I've been a partner and creative director there for two years — responsible for the brand's visual identity, its shoots and campaigns, and, increasingly, the production and business side behind them: sourcing pieces from designers, managing exhibitions and pop-ups, and building the brand's reach toward an international clientele.</p>
+
+    <div class="case-meta rise" style="animation-delay:.26s">
+      <div class="cm"><span class="cm-label">Role</span><span class="cm-value">Partner &amp; Creative Director</span></div>
+      <div class="cm"><span class="cm-label">Duration</span><span class="cm-value">2 years, ongoing</span></div>
+      <div class="cm"><span class="cm-label">Scope</span><span class="cm-value">Brand identity · Creative direction · Production · Exhibitions · Clientele</span></div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">01</span>
+      <h2 class="stage-title">Situation</h2>
+    </div>
+    <div class="stage-body">
+      <p>KIYAM needed someone who could take its visual identity and its collections from a concept to something people actually see, recognize and buy into — not one strong campaign, but a consistent presence, collection after collection, backed by production that could actually deliver what the campaign promised.</p>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">02</span>
+      <h2 class="stage-title">Decision</h2>
+    </div>
+    <div class="stage-body">
+      <p>I came in as a partner, not an outside consultant — which meant the production problems became mine to solve alongside the creative ones, rather than a brief I could hand off once a concept was approved.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/kiyam/img1.jpg" alt="Two models in KIYAM prêt, campaign photography">
+      <div class="feature-cap">KIYAM campaign photography — the finished end of the work I'm responsible for from concept onward.</div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">03</span>
+      <h2 class="stage-title">Approach</h2>
+    </div>
+    <div class="stage-body">
+      <p>Creative direction across brand identity and named collections — including Nureh Pret '25 and the premium tier launched as SOLENNE, "the silence of luxury." That means art direction and styling on set, but also sourcing and getting pieces actually made — working directly with the designers and artisans doing the embellishment and embroidery by hand.</p>
+    </div>
+    <div class="gallery g2">
+      <figure class="gallery-item">
+        <img src="assets/kiyam/img2.jpg" alt="On-set styling direction for a KIYAM campaign shoot">
+        <figcaption class="gallery-cap">On set — styling and creative direction, not handed off to someone else.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/kiyam/img3.jpg" alt="Reviewing shots with the production crew during a KIYAM shoot">
+        <figcaption class="gallery-cap">Reviewing shots with the crew mid-shoot.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">04</span>
+      <h2 class="stage-title">Testing</h2>
+    </div>
+    <div class="stage-body">
+      <p>Testing ran through the collections themselves: person-named prêt pieces — Laleh, Rosa, Liya, Zahra, Myra among them — sat alongside a distinct premium line, SOLENNE, to read which register the audience responded to. Content mixed polished campaign stills with unfiltered behind-the-scenes video to see what actually built the following, rather than assuming the finished shot was always the stronger post.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/kiyam/img4.jpg" alt="The KIYAM Instagram grid, including the SOLENNE collection launch">
+      <div class="feature-cap">SOLENNE — the premium line, launched as its own moment within the brand.</div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">05</span>
+      <h2 class="stage-title">Signal</h2>
+    </div>
+    <div class="stage-body">
+      <p>Individual posts have reached well beyond the account's typical range — several into the tens of thousands of views, one past 100K — a clear signal that both the campaign photography and the behind-the-scenes content were landing with people outside KIYAM's existing following.</p>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num">129K</span>
+        <span class="stat-label">Views, single post</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">100K</span>
+        <span class="stat-label">Views, single post</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">34.9K</span>
+        <span class="stat-label">Views, single post</span>
+      </div>
+    </div>
+    <p class="stat-source" style="margin-left:64px;">Source: @kiyam.dhedhi public posts.</p>
+    <div class="feature">
+      <img src="assets/kiyam/img5.jpg" alt="The @kiyam.dhedhi Instagram grid">
+      <div class="feature-cap">@kiyam.dhedhi — bridal and prêt content, campaign stills next to real production work.</div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">06</span>
+      <h2 class="stage-title">Action</h2>
+    </div>
+    <div class="stage-body">
+      <p>The behind-the-scenes side of that content isn't staged. Coordinating embroiderers and production runs against a hard collection deadline is real, and it's been posted as it happened — stress included — rather than only the finished result. Alongside the creative work, that's extended into managing KIYAM's exhibitions and pop-ups directly, and building toward an international clientele — moving the brand's pieces beyond the domestic market.</p>
+    </div>
+    <div class="gallery g2">
+      <figure class="gallery-item">
+        <img src="assets/kiyam/img6.jpg" alt="Embroidery artisans at work on a KIYAM collection, behind the scenes">
+        <figcaption class="gallery-cap">"I was stressed out" — production, not staged.</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/kiyam/img7.jpg" alt="A production workshop mid-collection, behind the scenes">
+        <figcaption class="gallery-cap">"Nothing was ready" — the same collection, closer to deadline.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">07</span>
+      <h2 class="stage-title">Result</h2>
+    </div>
+    <div class="stage-body">
+      <p>Two years in, KIYAM has a recognizable visual identity carried consistently across named collections, a premium sub-brand — SOLENNE — that's launched and live, and organic content performance strong enough to regularly outperform typical reach for an account its size.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/kiyam/img8.jpg" alt="A KIYAM campaign shot, styled and directed on set">
+      <div class="feature-cap">Campaign content, styled and directed on set.</div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-head">
+      <span class="stage-index">08</span>
+      <h2 class="stage-title">Learning</h2>
+    </div>
+    <div class="stage-body">
+      <p>The gap between "the concept is approved" and "the collection actually ships" is where most of the real decisions happen — fabric that isn't in yet, an artisan running behind, a shoot day that isn't ready when the light is. Being a partner rather than an outside creative meant I couldn't hand that gap to someone else; closing it became part of the job.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site" id="contact">
+  <div class="foot-block">
+    <span class="foot-label">Get in touch</span>
+    <p><a href="mailto:marviuzair28@gmail.com" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line);">marviuzair28@gmail.com</a><br>+92 334 2117246 &nbsp;·&nbsp; <a href="https://wa.me/923333731424" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line);">WhatsApp</a></p>
+  </div>
+  <div class="foot-block">
+    <span class="foot-label">Based</span>
+    <p>Karachi, Pakistan</p>
+  </div>
+  <div class="foot-block">
+    <span class="copyright">© 2026 Amna Chinoy</span>
+  </div>
+</footer>
